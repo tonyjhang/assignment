@@ -1,7 +1,6 @@
 from flask_restful import Resource
 from flask_sqlalchemy import SQLAlchemy
-from flask import request
-from flask import Response
+from flask import Response, request
 
 from app.models.Task import Task
 
@@ -16,8 +15,8 @@ class TaskList(Resource):
         db.session.close()
         res = json.dumps({
             'result': [data.to_json() for data in task_list]
-        })
-        return Response(res, status=400, mimetype=mimetype)
+        }, ensure_ascii=False)
+        return Response(res, status=200, mimetype=mimetype)
 
     def post(self):
         req = request.get_json(force=True)
@@ -34,7 +33,7 @@ class TaskList(Resource):
         
         result = json.dumps({
             'result': {'name': new_task.name, 'status': new_task.status, 'id': new_task.id}
-        })
+        }, ensure_ascii=False)
         return Response(result, status=201, mimetype=mimetype)
 
 class Tasks(Resource):
@@ -56,7 +55,7 @@ class Tasks(Resource):
             'name': task.name,
             'id': task.id,
             'status': task.status
-        })
+        }, ensure_ascii=False)
         return Response(res, status=200, mimetype=mimetype)
 
     def delete(self, id):
