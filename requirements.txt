@@ -1,5 +1,6 @@
 aniso8601==9.0.1
 attrs==21.2.0
+cffi==1.14.6
 click==8.0.1
 Flask==1.1.0
 Flask-RESTful==0.3.9
@@ -12,6 +13,7 @@ MarkupSafe==2.0.1
 packaging==21.0
 pluggy==0.13.1
 py==1.10.0
+pycparser==2.20
 PyMySQL==1.0.2
 pyparsing==2.4.7
 pytest==6.2.4
@@ -20,4 +22,5 @@ six==1.16.0
 SQLAlchemy==1.4.21
 SQLAlchemy-Utils==0.37.8
 toml==0.10.2
+uWSGI==2.0.19.1
 Werkzeug==2.0.1
