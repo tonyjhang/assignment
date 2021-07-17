@@ -9,15 +9,7 @@ import json
 db = SQLAlchemy()
 mimetype = 'application/json'
 
-class TaskList(Resource):
-    def get(self):
-        task_list = db.session.query(Task).all()
-        db.session.close()
-        res = json.dumps({
-            'result': [data.to_json() for data in task_list]
-        }, ensure_ascii=False)
-        return Response(res, status=200, mimetype=mimetype)
-
+class TaskPost(Resource):
     def post(self):
         req = request.get_json(force=True)
         if 'name' not in req:
@@ -35,7 +27,14 @@ class TaskList(Resource):
             'result': {'name': new_task.name, 'status': new_task.status, 'id': new_task.id}
         }, ensure_ascii=False)
         return Response(result, status=201, mimetype=mimetype)
-
+class TaskList(Resource):
+    def get(self):
+        task_list = db.session.query(Task).all()
+        db.session.close()
+        res = json.dumps({
+            'result': [data.to_json() for data in task_list]
+        }, ensure_ascii=False)
+        return Response(res, status=200, mimetype=mimetype)
 class Tasks(Resource):
     def put(self, id):
         req = request.get_json(force=True)
