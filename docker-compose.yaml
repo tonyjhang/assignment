@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   my-sql:
-    image: "mysql:${MY_SQL_VERSION}"
+    image: "mysql/mysql-server:${MY_SQL_VERSION}"
     container_name: assignment_my_sql
     volumes:
         - "./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
