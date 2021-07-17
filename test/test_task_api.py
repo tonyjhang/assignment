@@ -25,7 +25,7 @@ def test_database_configured():
     assert app.config['SQLALCHEMY_DATABASE_URI']
 
 def test_get_method(client):
-    res = client.get('/task')
+    res = client.get('/tasks')
     assert res.status_code == 200
 
 def test_post_method(client):
@@ -50,7 +50,7 @@ def test_delete_method(client, data):
     assert res.status_code == 200
 
     #check data really deleted
-    res = client.get('/task')
+    res = client.get('/tasks')
     task_list = json.loads(res.data)['result']
     is_exist = False
     for task in task_list:
