@@ -4,7 +4,7 @@ This project is integrate flask+uwgsi, mysql and nginx by using docker-compose.
 
 ## Logic
 ```
-client --> nginx --proxy_pass(internal network)--> uwsgi server(flask) <----internal network  ----> mysql
+client --> nginx --proxy_pass(internal network)--> uwsgi server(flask) <----internal network ----> mysql
 ```
 
 ## File structure
