@@ -1,7 +1,7 @@
 __all__ = ['config']
 
 driver = 'mysql+pymysql'
-host = '127.0.0.1'
+host = '10.3.0.2'
 port = 3306
 db_name = 'assignment'
 user = 'user'
